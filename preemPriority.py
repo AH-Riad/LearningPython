@@ -23,9 +23,9 @@ for i in range(n):
     priority.append(int(input("Priority (lower number = higher priority): ")))
 
 time = 0
-completed = 0
+done = 0
 
-while completed < n:
+while done < n:
     idx = -1
     highest_priority = 999999
 
@@ -46,7 +46,7 @@ while completed < n:
 
     # If process finished
     if remaining_time[idx] == 0:
-        completed += 1
+        done += 1
         ct[idx] = time
         tat[idx] = ct[idx] - at[idx]
         wt[idx] = tat[idx] - bt[idx]
