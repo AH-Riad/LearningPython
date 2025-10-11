@@ -1,54 +1,46 @@
-n = int(input("Enter number of processes :"))
+n = int(input("Enter number of processes: "))
 
 pid = []
 at = []
 bt = []
 
-ct = [0]*n
-tat = [0]*n
-wt = [0]*n
-
-
-completed = [0]*n
+ct = [0] * n
+tat = [0] * n
+wt = [0] * n
+completed = [0] * n
 
 for i in range(n):
-    print(f"\nProcess {i+1} details:")
-    pid.append(i+1)
-    at.append(int(input("Arrival time:")))
-    bt.append(int(input("Burst time:")))
-    
+    print(f"\nEnter process {i + 1} details:")
+    pid.append(i + 1)
+    at.append(int(input("Arrival time: ")))
+    bt.append(int(input("Burst time: ")))
+
 time = 0
 done = 0
 
-while done<n:
+while done < n:
     idx = -1
-    min_bt = 999999
-    
-    
+    min_burst = 999999
+
     for i in range(n):
-        if at[i] <=time and completed[i]==0:
-            if bt[i]<min_bt:
-                min_bt=bt[i]
-                idx=i
-            
-    if idx==-1:
-        time+=1
+        if at[i] <= time and completed[i] == 0:
+            if bt[i] < min_burst:
+                min_burst = bt[i]
+                idx = i
+
+    if idx == -1:
+        time += 1
         continue
-    
-    
-    
-    time+= bt[idx]
-    ct[idx]=time
-    completed[idx]=1
-    done+=1
-    
+
+    time += bt[idx]
+    ct[idx] = time
+    completed[idx] = 1
+    done += 1
+
 for i in range(n):
     tat[i] = ct[i] - at[i]
     wt[i] = tat[i] - bt[i]
-    
-    
-print("\nPid\tAT\tBT\tCT\tTAT\tWT")
 
-
+print("\nPID\tAT\tBT\tCT\tTAT\tWT")
 for i in range(n):
-    print(f"{pid[i]}\t{at[i]}\t{bt[i]}\t{ct[i]}\t{tat[i]}\t{wt[i]}\t")
+    print(f"{pid[i]}\t{at[i]}\t{bt[i]}\t{ct[i]}\t{tat[i]}\t{wt[i]}")
