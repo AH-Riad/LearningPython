@@ -26,10 +26,10 @@ while done<n:
     
     
     for i in range(n):
-        at[i] <=time and completed==0
-        if bt[i]<min_bt:
-            min_bt=bt[i]
-            idx=i
+        if at[i] <=time and completed[i]==0:
+            if bt[i]<min_bt:
+                min_bt=bt[i]
+                idx=i
             
     if idx==-1:
         time+=1
