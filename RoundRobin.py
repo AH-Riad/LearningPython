@@ -24,8 +24,8 @@ for i in range(n):
 
 # Step 3: Initialize helper variables
 time = 0
-queue = []
-done = 0          # Counts how many processes are finished
+done = 0  
+queue = []        # Counts how many processes are finished
 visited = [0]*n   # Keeps track of which processes have entered queue
 
 # Add the first process to queue (the one that arrives first)
