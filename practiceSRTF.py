@@ -26,7 +26,7 @@ while done<n:
     min_remaining = 999999
     
     for i in range(n):
-        if at[i]<=-time and remainingTime[i]==0:
+        if at[i]<=time and remainingTime[i]>0:
             if remainingTime[i]<min_remaining:
                 min_remaining=remainingTime[i]
                 idx =i
@@ -34,16 +34,17 @@ while done<n:
                 
     if idx==-1:
         time+=1
+        continue
         
         
-    remainingTime-=1
+    remainingTime[idx]-=1
     time+=1
     
-    if remainingTime==0:
+    if remainingTime[idx]==0:
         done+=1
         ct[idx] = time
         tat[idx]=ct[idx]-at[idx]
-        wt = tat[idx] - bt[idx]
+        wt[idx] = tat[idx] - bt[idx]
         
 print("\npID\tAT\tBT\tCT\tTAT\tWT")
 
