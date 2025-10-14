@@ -21,15 +21,15 @@ finished = [0] * n
 safe_sequence = []
 
 while len(safe_sequence) < n:
-    allocated = False
+    allocated = -1
     for i in range(n):
         if finished[i] == 0 and all(need[i][j] <= available[j] for j in range(m)):
             for j in range(m):
                 available[j] += allocation[i][j]
             safe_sequence.append(i + 1)
             finished[i] = 1
-            allocated = True
-    if not allocated:
+            allocated = 1
+    if allocated == -1:
         break
 
 if len(safe_sequence) == n:
