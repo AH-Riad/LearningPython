@@ -1,5 +1,5 @@
 n = int(input("Enter number of processes: "))
-m = int(input("Enter number of resource types: "))
+m = int(input("Enter number of resource:"))
 
 print("\nEnter Allocation Matrix:")
 allocation = []
